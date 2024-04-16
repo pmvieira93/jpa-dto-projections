@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  postgres-dev:
+    image: postgres:13.1
+    container_name: postgres-dev
+    ports:
+      - "2345:5432"
+    cap_add:
+      - NET_ADMIN
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: playground
+    networks:
+      - postgres-net
+
+networks:
+  postgres-net:
